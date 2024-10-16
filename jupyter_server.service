@@ -1,0 +1,12 @@
+
+[Unit]
+Description=Jupyter Server
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/jupyter server
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
+

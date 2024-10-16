@@ -1,0 +1,14 @@
+
+[Unit]
+Description=Clean firefox profile at shutdown
+Requires=psd.service
+Before=psd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/true
+ExecStop=/usr/bin/zsh -c 'if pgrep firefox > /dev/null; then echo "Firefox running, cannot run"; else echo "Cleaning profile"; profile-cleaner f; fi'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup Script
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/zsh -c 'bucket'
+
+[Install]
+WantedBy=default.target
